@@ -167,10 +167,6 @@ class BaseDefinition:
         except (AttributeError, ValueError):
             return False
 
-    def __ne__(self, other):
-        """Test for approximate equality."""
-        return not self.__eq__(other)
-
     def get_area_extent_for_subset(self, row_LR, col_LR, row_UL, col_UL):
         """Calculate extent for a subdomain of this area.
 
@@ -1717,10 +1713,6 @@ class AreaDefinition(_ProjectionDefinition):
                     (np.allclose(self.area_extent, other.area_extent)))
         except AttributeError:
             return super(AreaDefinition, self).__eq__(other)
-
-    def __ne__(self, other):
-        """Test for equality."""
-        return not self.__eq__(other)
 
     def update_hash(self, existing_hash: Optional[HashType] = None) -> HashType:
         """Update a hash, or return a new one if needed."""

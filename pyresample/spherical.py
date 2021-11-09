@@ -78,10 +78,6 @@ class SCoordinate(object):
                               np.cos(point.lat) * np.cos(self.lat) *
                               np.sin((point.lon - self.lon) / 2.0) ** 2.0) ** .5)
 
-    def __ne__(self, other):
-        """Check inequality."""
-        return not self.__eq__(other)
-
     def __eq__(self, other):
         """Check equality."""
         return np.allclose((self.lon, self.lat), (other.lon, other.lat))
@@ -122,10 +118,6 @@ class CCoordinate(object):
     def dot(self, point):
         """Get dot product with another vector."""
         return np.inner(self.cart, point.cart)
-
-    def __ne__(self, other):
-        """Check inequality."""
-        return not self.__eq__(other)
 
     def __eq__(self, other):
         """Check equality."""
@@ -186,10 +178,6 @@ class Arc(object):
         if self.start == other.start and self.end == other.end:
             return 1
         return 0
-
-    def __ne__(self, other):
-        """Check not equal comparison."""
-        return not self.__eq__(other)
 
     def __str__(self):
         """Get simplified representation."""

@@ -79,7 +79,7 @@ class Coordinate(object):
 
     def __eq__(self, other):
         """Check equality."""
-        return not self.__ne__(other)
+        return not self != other
 
     def __str__(self):
         """Get simplified representation of lon/lats in degrees."""
@@ -170,10 +170,6 @@ class Arc(object):
         if self.start == other.start and self.end == other.end:
             return 1
         return 0
-
-    def __ne__(self, other):
-        """Check inequality."""
-        return not self.__eq__(other)
 
     def __str__(self):
         """Get simplified representation."""
